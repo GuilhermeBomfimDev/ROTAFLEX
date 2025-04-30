@@ -19,7 +19,7 @@
             Marca = marca;
             Modelo = modelo;
             Placa = placa;
-            Ano = ano;asdasdas
+            Ano = ano;
             Cor = cor;
             Motorista = motorista;
         }
