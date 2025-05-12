@@ -1,0 +1,30 @@
+<mat-toolbar class="header-toolbar" color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
+      <mat-icon>menu</mat-icon>
+    </button>
+  
+    <span class="logo">📡 Telecom</span>
+    <span class="spacer"></span>
+  
+    <!-- Menu desktop -->
+    <nav class="nav-buttons desktop-menu">
+      <a mat-button routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <a mat-button routerLink="/login" routerLinkActive="active-link">Login</a>
+    </nav>
+  </mat-toolbar>
+  
+  <!-- Menu lateral mobile -->
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="over" class="mobile-sidenav">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/" (click)="sidenav.close()">Home</a>
+        <a mat-list-item routerLink="/contratos" (click)="sidenav.close()">Contratos</a>
+        <a mat-list-item routerLink="/faturas" (click)="sidenav.close()">Faturas</a>
+        <a mat-list-item routerLink="/operadoras" (click)="sidenav.close()">Operadoras</a>
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <!-- Isso garante que o conteúdo do app continue renderizando -->
+    <mat-sidenav-content></mat-sidenav-content>
+  </mat-sidenav-container>
+  

@@ -1,0 +1,59 @@
+.header-toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+    background-color: #0d47a1;
+    color: white;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .menu-button {
+    display: none;
+  }
+  
+  .nav-buttons a {
+    color: white;
+    margin: 0 8px;
+    font-weight: 500;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+  
+  .nav-buttons a.active-link {
+    background-color: #1976d2;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+
+  .sidenav-container {
+    display: none;
+  }
+  
+
+  @media (max-width: 768px) {
+    .menu-button {
+      display: block;
+    }
+  
+    .desktop-menu {
+      display: none;
+    }
+  
+    .sidenav-container {
+      display: block;
+      height: 0; 
+    }
+  
+    .mobile-sidenav {
+      width: 250px;
+    }
+  }
+  
