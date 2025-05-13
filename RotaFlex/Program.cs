@@ -25,11 +25,21 @@ internal class Program
                 connStr,
                 new MySqlServerVersion(new Version(8, 0, 36)),
                 mySqlOptions => mySqlOptions.EnableRetryOnFailure()
-                )
-            );
+            )
+        );
         builder.Services.AddScoped<SeedingService>();
-
         builder.Services.AddHttpClient<GeoLocalizacaoService>();
+
+        // Configuração do CORS
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowLocalhost", policy =>
+            {
+                policy.WithOrigins("http://localhost:4200")  // Frontend Angular
+                      .AllowAnyMethod()                   // Permitir qualquer método HTTP
+                      .AllowAnyHeader();                  // Permitir qualquer cabeçalho
+            });
+        });
 
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
@@ -40,10 +50,13 @@ internal class Program
         if (!app.Environment.IsDevelopment())
         {
             app.UseExceptionHandler("/Home/Error");
-            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
 
+        // Usando o CORS
+        app.UseCors("AllowLocalhost");
+
+        // População de dados iniciais (se necessário)
         using (var scope = app.Services.CreateScope())
         {
             var seedingService = scope.ServiceProvider.GetRequiredService<SeedingService>();
@@ -51,7 +64,6 @@ internal class Program
         }
 
         app.UseHttpsRedirection();
-
         app.UseSwagger();
         app.UseSwaggerUI();
 
@@ -61,6 +73,7 @@ internal class Program
 
         app.UseAuthorization();
 
+        // Definição de rota padrão
         app.MapControllerRoute(
             name: "default",
             pattern: "{controller=Login}/{action=Index}");

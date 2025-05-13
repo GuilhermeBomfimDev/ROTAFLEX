@@ -1,0 +1,73 @@
+<div class="container my-4">
+  <h2 class="text-light">Transportes Públicos</h2>
+
+  <button class="btn btn-primary mb-3" (click)="abrirFormulario()">Novo Transporte</button>
+
+  <!-- Formulário de novo transporte -->
+  <div *ngIf="exibirFormulario" class="mb-4">
+    <form (ngSubmit)="salvar()" #form="ngForm" class="bg-dark p-4 rounded shadow">
+        <div class="mb-3">
+        <label class="form-label text-light">Tipo</label>
+        <select class="form-select bg-secondary text-light border-0" [(ngModel)]="novoTransporte.tipo" name="tipo" required>
+            <option *ngFor="let tipo of tiposTransporte" [value]="tipo.valor">{{ tipo.nome }}</option>
+        </select>
+        </div>
+
+      <div class="mb-3">
+        <label class="form-label text-light">Valor</label>
+        <input type="number" class="form-control bg-secondary text-light border-0" [(ngModel)]="novoTransporte.valor" name="valor" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label text-light">Estado</label>
+        <input type="text" class="form-control bg-secondary text-light border-0" [(ngModel)]="novoTransporte.estado" name="estado" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label text-light">Cidade</label>
+        <input type="text" class="form-control bg-secondary text-light border-0" [(ngModel)]="novoTransporte.cidade" name="cidade" required>
+      </div>
+
+      <div class="d-flex gap-2">
+        <button type="submit" class="btn btn-success">Salvar</button>
+        <button type="button" class="btn btn-danger" (click)="exibirFormulario = false">Cancelar</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Tabela -->
+  <div *ngIf="transportes.length" class="table-responsive">
+    <table class="table table-dark table-hover table-bordered align-middle">
+      <thead class="table-active">
+        <tr>
+          <th>Tipo</th>
+          <th>Valor</th>
+          <th>Estado</th>
+          <th>Cidade</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of transportes">
+          <td>{{ getTipoNome(t.tipo) }}</td>
+          <td>{{ t.valor | currency:'BRL' }}</td>
+          <td>{{ t.estado }}</td>
+          <td>{{ t.cidade }}</td>
+          <td>
+            <div class="d-flex gap-2">
+              <button class="btn btn-sm btn-warning" (click)="editar(t)">
+                <i class="bi bi-pencil-square"></i> Editar
+              </button>
+              <button class="btn btn-sm btn-danger" (click)="excluir(t)">
+                <i class="bi bi-trash"></i> Excluir
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Caso não tenha transportes -->
+  <p *ngIf="!transportes.length" class="text-muted">Nenhum transporte disponível.</p>
+</div>
