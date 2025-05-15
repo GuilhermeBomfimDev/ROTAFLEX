@@ -1,23 +1,19 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/internal/Observable';
-
+import { Observable } from 'rxjs';
+import { LoginRequest } from '../entities/request/login-request';
+import { LoginResponse } from '../entities/response/login-response';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-
   private apiUrl = environment.apiUrl;
 
+  constructor(private http: HttpClient) {}
 
-  constructor(
-    private http: HttpClient,
-  
-  ) { }
-
-//INTRODUZIR LOGICA DE ROTAS AQUI 
-
-
+  login(data: LoginRequest): Observable<LoginResponse> {
+  return this.http.post<LoginResponse>(`${this.apiUrl}/login`, data);
+  }
 }
