@@ -1,0 +1,45 @@
+<div class="container my-4">
+  <h2 class="text-light">Calcular Viagem</h2>
+
+  <!-- Tipo de Viagem -->
+  <div class="mb-3">
+    <label class="form-label text-light">Tipo de Viagem</label>
+    <select class="form-select" [(ngModel)]="tipoViagem">
+      <option value="particular">Particular</option>
+      <option value="publico" disabled>Transporte Público (em breve)</option>
+    </select>
+  </div>
+
+  <!-- Formulário para viagem particular -->
+  <div *ngIf="tipoViagem === 'particular'" class="bg-dark p-4 rounded shadow">
+    <div class="mb-3">
+      <label class="form-label text-light">Origem</label>
+      <input type="text" class="form-control bg-secondary text-light border-0"
+             [(ngModel)]="viagem.origem" placeholder="Endereço de origem" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label text-light">Destino</label>
+      <input type="text" class="form-control bg-secondary text-light border-0"
+             [(ngModel)]="viagem.destino" placeholder="Endereço de destino" />
+    </div>
+
+    <button class="btn btn-success" (click)="calcularRota()" [disabled]="carregando">
+      {{ carregando ? 'Calculando...' : 'Calcular Rota' }}
+    </button>
+  </div>
+
+  <!-- Exibição dos resultados -->
+  <div *ngIf="opcoes.length" class="mt-4">
+    <h5 class="text-light">Opções de Transporte</h5>
+    <div *ngFor="let opcao of opcoes" class="bg-secondary text-light p-3 rounded mb-3 shadow">
+      <h6>{{ opcao.tipo }} - {{ opcao.descricao }}</h6>
+      <p><strong>Meios:</strong> {{ opcao.meiosDeTransporte.join(', ') }}</p>
+      <p><strong>Distância:</strong> {{ opcao.distanciaKm.toFixed(2) }} km</p>
+      <p><strong>Valor Estimado:</strong> {{ opcao.valorEstimado | currency:'BRL' }}</p>
+    </div>
+  </div>
+
+  <!-- Erro -->
+  <p *ngIf="erro" class="text-danger mt-3">{{ erro }}</p>
+</div>

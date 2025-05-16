@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TransporteComponent } from "../transporte/transporte.component";
 import { HttpClientModule } from '@angular/common/http';
+import { ViagemComponent } from "../viagem/viagem.component";
 
 @Component({
   selector: 'app-home',
@@ -8,8 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     TransporteComponent,
     HttpClientModule,
-
-  ],
+    ViagemComponent,
+],
 
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
