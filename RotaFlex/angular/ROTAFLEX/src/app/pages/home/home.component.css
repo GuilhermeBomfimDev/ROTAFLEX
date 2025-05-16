@@ -1,0 +1,147 @@
+/* Centraliza e dá espaçamento para o título */
+.title, .subtitle {
+  text-align: center;
+  color: #222;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+  font-weight: bold;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  font-size: 50px;
+}
+
+.subtitle {
+  color: #555;
+  font-weight: normal;
+  margin-bottom: 1.5rem;
+  font-size: 30px;
+
+}
+
+/* Formulário estilizado */
+.rota-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Botão */
+.btn-submit {
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-submit:disabled {
+  background-color: #a1cafc;
+  cursor: not-allowed;
+}
+
+.btn-submit:not(:disabled):hover {
+  background-color: #0056b3;
+}
+
+/* Resultado */
+.resultado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+  margin: 2rem auto 5rem; /* o "5rem" no bottom evita que o footer fixe em cima */
+  max-width: 900px;
+  padding: 0 1rem;
+}
+
+.resultado h3 {
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+/* Cards */
+.card {
+  flex: 1 1 45%;
+  min-width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-body p {
+  margin: 0.2rem 0;
+  color: #444;
+}
+
+/* Mobile: stack cards verticalmente */
+@media (max-width: 768px) {
+  .title {
+    font-size: 28px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    font-size: 22px;
+    margin: 0 0 20px 0;
+  }
+
+  .resultado {
+    flex-direction: column;
+    align-items: stretch; /* garante que o card use a largura total */
+  }
+
+  .card {
+    flex: 1 1 100%;
+    min-width: auto; /* remove restrição mínima */
+  }
+
+  input {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+}
+
+

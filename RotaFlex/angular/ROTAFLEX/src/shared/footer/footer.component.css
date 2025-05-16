@@ -2,6 +2,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     padding: 16px;
     font-size: 0.9rem;
     color: white;
@@ -21,6 +24,7 @@
     .footer-toolbar {
       font-size: 0.8rem;
       padding: 12px;
+      margin-top: 50px;
     }
   }
   

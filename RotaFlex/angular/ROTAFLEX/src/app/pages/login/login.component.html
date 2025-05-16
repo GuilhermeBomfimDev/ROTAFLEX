@@ -3,7 +3,7 @@
   <form [formGroup]="form" (ngSubmit)="submit()">
     <label for="email">Email</label>
     <input id="email" formControlName="email" type="email" />
-    <div *ngIf="form.get('email').invalid && form.get('email').touched" class="error">
+    <div ngIf="form.get('email').invalid && form.get('email').touched" class="error">
       Email inválido.
     </div>
 
