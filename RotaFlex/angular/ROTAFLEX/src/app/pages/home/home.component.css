@@ -1,3 +1,10 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto; /* força o scroll vertical quando precisar */
+}
+
 /* Centraliza e dá espaçamento para o título */
 .title, .subtitle {
   text-align: center;
@@ -15,7 +22,7 @@
 .subtitle {
   color: #555;
   font-weight: normal;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   font-size: 30px;
 
 }
@@ -24,7 +31,9 @@
 .rota-form {
   max-width: 600px;
   margin: 0 auto;
+  margin-bottom: 2rem; 
   padding: 1rem;
+  flex-direction: row;
 }
 
 .form-group {
@@ -77,9 +86,8 @@ input:focus {
   align-items: center;
   flex-direction: row;
   gap: 1rem;
-  margin: 2rem auto 5rem; /* o "5rem" no bottom evita que o footer fixe em cima */
+  margin: 1rem auto 3rem; /* o "5rem" no bottom evita que o footer fixe em cima */
   max-width: 900px;
-  padding: 0 1rem;
 }
 
 .resultado h3 {

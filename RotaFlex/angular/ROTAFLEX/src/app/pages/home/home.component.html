@@ -16,15 +16,47 @@
 </form>
 
 <div *ngIf="resultado && resultado.length > 0" class="resultado">
+
   <div *ngFor="let opcao of resultado" class="card">
-    <div class="card-header">
-      {{ opcao.tipo }}
-    </div>
-    <div class="card-body">
-      <p><strong>Descrição:</strong> {{ opcao.descricao }}</p>
-      <p><strong>Valor Estimado:</strong> R$ {{ opcao.valorEstimado }}</p>
-      <p><strong>Distância:</strong> {{ opcao.distanciaKm.toFixed(2) }} km</p>
-      <p><strong>Meios:</strong> {{ opcao.meiosDeTransporte.join(', ') }}</p>
-    </div>
+    
+    <!-- Card de Transporte Público com Passos -->
+    <ng-container *ngIf="opcao.tipo === 'Público'; else cardPrivado">
+      <div class="card-header bg-info text-white">
+        Transporte Público
+      </div>
+      <div class="card-body">
+        <p><strong>Origem:</strong> {{ opcao.origem }}</p>
+        <p><strong>Destino:</strong> {{ opcao.destino }}</p>
+        <p><strong>Distância:</strong> {{ opcao.distancia }}</p>
+        <p><strong>Duração Estimada:</strong> {{ opcao.duracao }}</p>
+
+        <div *ngIf="opcao.passos?.length">
+          <h5 style="font-size: 15px; font-weight: bold; margin-top: 10px;">Passos:</h5>
+          <ul>
+            <li *ngFor="let passo of opcao.passos">
+              <span [innerHTML]="passo.instrucoes"></span>
+              <span *ngIf="passo.linha"> - Linha: {{ passo.linha }}</span>
+              <span *ngIf="passo.veiculo"> ({{ passo.veiculo }})</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- Card de Transporte Privado -->
+    <ng-template #cardPrivado>
+      <div class="card-header bg-secondary text-white">
+        Transporte Privado
+      </div>
+      <div class="card-body">
+        <p><strong>Descrição:</strong> {{ opcao.descricao }}</p>
+        <p><strong>Valor Estimado:</strong> R$ {{ opcao.valorEstimado }}</p>
+        <p><strong>Distância:</strong> {{ opcao.distanciaKm.toFixed(2) }} km</p>
+        <p><strong>Duração Estimada:</strong> {{ opcao.duracao }}</p>
+        <p><strong>Meios:</strong> {{ opcao.meiosDeTransporte.join(', ') }}</p>
+      </div>
+    </ng-template>
+
   </div>
 </div>
+

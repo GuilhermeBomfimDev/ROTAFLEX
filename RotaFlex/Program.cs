@@ -29,6 +29,8 @@ internal class Program
         );
         builder.Services.AddScoped<SeedingService>();
         builder.Services.AddHttpClient<GeoLocalizacaoService>();
+        builder.Services.AddHttpClient<GoogleMapsService>();
+        builder.Services.AddScoped<GoogleMapsService>();
 
         // Configuração do CORS
         builder.Services.AddCors(options =>
