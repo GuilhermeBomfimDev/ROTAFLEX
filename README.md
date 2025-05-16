@@ -27,3 +27,14 @@ C# / ASP.NET MySQL JavaScript HTML CSS Swagger (documentação de API) GeoLocali
 📄 LICENÇA
 
 Este projeto é de uso acadêmico. Sem licença pública definida.
+
+Nome dos Integrantes:
+
+Carina Fernandes 
+Guilherme Bomfim
+Letícia Menezes
+Paulo Henrique
+Rodrigo Soares
+
+LINK PARA O VÍDEO:  https://youtu.be/o0AALUlQfIE
+
