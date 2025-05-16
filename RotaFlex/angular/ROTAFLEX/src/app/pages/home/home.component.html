@@ -1,0 +1,30 @@
+<h1 class="title" >Bem-vindo ao RotaFlex!</h1>
+<h2 class="subtitle">Calcular Rota</h2>
+
+<form [formGroup]="rotaForm" (ngSubmit)="calcularRota()" class="rota-form">
+  <div class="form-group">
+    <label for="origem">Origem</label>
+    <input id="origem" formControlName="origem" placeholder="Digite a origem" required>
+  </div>
+
+  <div class="form-group">
+    <label for="destino">Destino</label>
+    <input id="destino" formControlName="destino" placeholder="Digite o destino" required>
+  </div>
+
+  <button type="submit" [disabled]="rotaForm.invalid" class="btn-submit">Calcular</button>
+</form>
+
+<div *ngIf="resultado && resultado.length > 0" class="resultado">
+  <div *ngFor="let opcao of resultado" class="card">
+    <div class="card-header">
+      {{ opcao.tipo }}
+    </div>
+    <div class="card-body">
+      <p><strong>Descrição:</strong> {{ opcao.descricao }}</p>
+      <p><strong>Valor Estimado:</strong> R$ {{ opcao.valorEstimado }}</p>
+      <p><strong>Distância:</strong> {{ opcao.distanciaKm.toFixed(2) }} km</p>
+      <p><strong>Meios:</strong> {{ opcao.meiosDeTransporte.join(', ') }}</p>
+    </div>
+  </div>
+</div>

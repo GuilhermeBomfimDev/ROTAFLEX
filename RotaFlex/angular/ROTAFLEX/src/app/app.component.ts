@@ -1,18 +1,20 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from "../shared/header/header.component";
-import { FooterComponent } from "../shared/footer/footer.component";
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { HeaderComponent } from '../shared/header/header.component';
+import { FooterComponent } from '../shared/footer/footer.component';
+import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterModule,
+    CommonModule,
     RouterOutlet,
-    HeaderComponent, 
-    FooterComponent],
+    HeaderComponent,
+    FooterComponent
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'ROTAFLEX';

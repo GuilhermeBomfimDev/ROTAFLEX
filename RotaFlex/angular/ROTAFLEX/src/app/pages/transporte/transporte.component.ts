@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Transporte } from '../../app/entities/models/transporte.model';
-import { TransporteService } from '../../app/services/transporte.service';
+import { Transporte } from '../../entities/models/transporte.model';
+import { TransporteService } from '../../services/transporte.service';
 import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -10,7 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { HttpClientModule } from '@angular/common/http';
-import { TipoTransporte } from '../../app/entities/enums/tipo.transporte';
+import { TipoTransporte } from '../../entities/enums/tipo.transporte';
 
 @Component({
   selector: 'app-transporte',
