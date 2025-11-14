@@ -1,15 +1,16 @@
 <div class="login-container">
   <h2>Login</h2>
+
   <form [formGroup]="form" (ngSubmit)="submit()">
     <label for="email">Email</label>
     <input id="email" formControlName="email" type="email" />
-    <div ngIf="form.get('email').invalid && form.get('email').touched" class="error">
+    <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="error">
       Email inválido.
     </div>
 
     <label for="senha">Senha</label>
     <input id="senha" formControlName="senha" type="password" />
-    <div *ngIf="form.get('senha').invalid && form.get('senha').touched" class="error">
+    <div *ngIf="form.get('senha')?.invalid && form.get('senha')?.touched" class="error">
       Senha é obrigatória.
     </div>
 
@@ -17,4 +18,10 @@
   </form>
 
   <div *ngIf="errorMessage" class="error-msg">{{ errorMessage }}</div>
+
+  <!-- 🔥 Botões adicionados -->
+  <div class="extra-buttons">
+    <button type="button" class="btn-primary">Cadastrar</button>
+    <button type="button" class="btn-primary">Recuperar Senha</button>
+  </div>
 </div>

@@ -1,155 +1,140 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-y: auto; /* força o scroll vertical quando precisar */
+/* CONTAINER GERAL */
+.home-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-/* Centraliza e dá espaçamento para o título */
-.title, .subtitle {
-  text-align: center;
-  color: #222;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
+/* TÍTULOS */
 .title {
-  font-weight: bold;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
-  font-size: 50px;
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 5px;
+  font-weight: 700;
+  color: #0d47a1;
+}
+
+.highlight {
+  color: #1565c0;
 }
 
 .subtitle {
-  color: #555;
-  font-weight: normal;
-  margin-bottom: 0.5rem;
-  font-size: 30px;
-
-}
-
-/* Formulário estilizado */
-.rota-form {
-  max-width: 600px;
-  margin: 0 auto;
-  margin-bottom: 2rem; 
-  padding: 1rem;
-  flex-direction: row;
-}
-
-.form-group {
-  margin-bottom: 1rem;
-}
-
-label {
-  margin-bottom: 0.4rem;
-  font-weight: 600;
+  text-align: center;
+  font-size: 1.4rem;
+  margin-bottom: 25px;
   color: #333;
 }
 
-input {
-  width: 100%;
-  padding: 0.6rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
+/* FORM */
+.rota-form {
+  padding: 20px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
 }
 
-input:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-/* Botão */
-.btn-submit {
-  padding: 0.6rem 1.5rem;
-  font-size: 1rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.btn-submit:disabled {
-  background-color: #a1cafc;
-  cursor: not-allowed;
-}
-
-.btn-submit:not(:disabled):hover {
-  background-color: #0056b3;
-}
-
-/* Resultado */
-.resultado {
+.form-row {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  gap: 1rem;
-  margin: 1rem auto 3rem; /* o "5rem" no bottom evita que o footer fixe em cima */
-  max-width: 900px;
+  gap: 20px;
 }
 
-.resultado h3 {
-  color: #222;
-  margin-bottom: 1rem;
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Cards */
-.card {
-  flex: 1 1 45%;
-  min-width: 300px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 1rem;
-  background-color: #f9f9f9;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.btn-submit {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #0d47a1;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-submit:hover {
+  background-color: #1565c0;
+}
+
+/* MAPA */
+.map-card {
+  width: 100%;
+  height: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+/* RESULTADOS */
+.resultado-title {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  color: #0d47a1;
+}
+
+.resultado-card {
+  margin-bottom: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  background: white;
 }
 
 .card-header {
+  padding: 12px;
   font-weight: bold;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  font-size: 18px;
+  color: white;
 }
 
-.card-body p {
-  margin: 0.2rem 0;
-  color: #444;
+.publico {
+  background-color: #0288d1;
 }
 
-/* Mobile: stack cards verticalmente */
+.privado {
+  background-color: #6c757d;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.passos-list {
+  padding-left: 20px;
+}
+
+.passos-list li {
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+/* RESPONSIVO */
 @media (max-width: 768px) {
-  .title {
-    font-size: 28px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-  }
-
-  .subtitle {
-    font-size: 22px;
-    margin: 0 0 20px 0;
-  }
-
-  .resultado {
+  .form-row {
     flex-direction: column;
-    align-items: stretch; /* garante que o card use a largura total */
   }
 
-  .card {
-    flex: 1 1 100%;
-    min-width: auto; /* remove restrição mínima */
-  }
-
-  input {
-    padding: 0.8rem;
-    font-size: 1rem;
-  }
-
-  .btn-submit {
-    width: 100%;
-    padding: 0.8rem;
-    font-size: 1rem;
+  .title {
+    font-size: 2rem;
   }
 }
-
-

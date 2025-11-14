@@ -18,7 +18,7 @@ namespace RotaFlex.Services
 
         public async Task<string> ObterRotaTransportePublico(string origem, string destino)
         {
-            string apiKey = "AIzaSyC-LZkV2B_6wHRtnkh-LzCisFlDxO-ft8w";
+            string apiKey = "AIzaSyBYz84s-vClihhwcQi4eVdu-qXMrpCtGfA";
             string url = $"https://maps.googleapis.com/maps/api/directions/json?origin={Uri.EscapeDataString(origem)}&destination={Uri.EscapeDataString(destino)}&mode=transit&key={apiKey}";
 
             var response = await _httpClient.GetAsync(url);

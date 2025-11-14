@@ -1,8 +1,10 @@
 body {
   padding-bottom: 50px; /* deve ser igual à altura do footer */
+  margin: 0;
 }
 
 .footer-toolbar {
+  position: fixed;        /* <-- ESSENCIAL: fixa no rodapé */
   bottom: 0;
   left: 0;
   width: 100%;
@@ -12,23 +14,23 @@ body {
   background-color: #0d47a1;
   text-align: center;
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
-  z-index: 1000; /* garante que fique na frente */
+  z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50px; /* altura fixa do footer */
 }
-  
-  .footer-content {
-    display: flex;
-    flex-direction: column;
-  }
-  
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
   .footer-toolbar {
     font-size: 0.8rem;
     padding: 5px;
-    height: 60px; /* ajusta se precisar mais altura no mobile */
+    height: 60px; /* altura maior no mobile */
   }
 }
