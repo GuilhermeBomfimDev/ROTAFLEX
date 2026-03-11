@@ -75,6 +75,11 @@
 }
 
 /* MAPA */
+#map {
+  width: 100%;
+  height: 350px; /* igual à .map-card */
+}
+
 .map-card {
   width: 100%;
   height: 350px;

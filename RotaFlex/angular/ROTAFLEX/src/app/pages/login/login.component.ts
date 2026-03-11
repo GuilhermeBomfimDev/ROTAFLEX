@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],  // <== IMPORTA AQUI
+  imports: [CommonModule, ReactiveFormsModule],  // <== IMPORTA AQUI
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
